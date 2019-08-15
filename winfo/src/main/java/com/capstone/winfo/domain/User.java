@@ -5,9 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -15,13 +19,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String username;
+    @NotNull
     private String password;
     private Boolean admin;
     private String profilePic;
@@ -38,6 +44,17 @@ public class User {
     @Builder.Default
     @ElementCollection
     private List<Post> savedPosts = new ArrayList<>();
+
+    @Transient
+    private boolean accountNonExpired = true;
+    @Transient
+    private boolean accountNonLocked = true;
+    @Transient
+    private boolean credentialsNonExpired = true;
+    @Transient
+    private boolean enabled = true;
+    @Transient
+    private Collection<GrantedAuthority> authorities = null;
 
     @Column(name = "edit_user")
     boolean edit = false;
