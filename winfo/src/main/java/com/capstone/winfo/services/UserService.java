@@ -35,4 +35,6 @@ public class UserService {
         return userRepo.findById(id);
     }
 
+    public void save(User user){ userRepo.save(user);}
+
 }

@@ -38,4 +38,7 @@ public class User {
     @Builder.Default
     @ElementCollection
     private List<Post> savedPosts = new ArrayList<>();
+
+    @Column(name = "edit_user")
+    boolean edit = false;
 }
