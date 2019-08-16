@@ -29,6 +29,9 @@ public class Post {
     @NotNull
     private String title;
 
+    @NotNull
+    private String type;
+
     private String description;
 
     private String language;

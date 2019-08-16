@@ -11,4 +11,6 @@ public interface PostRepo extends CrudRepository<Post, Long> {
     List<Post> findAll();
     Post findById(long id);
     void deleteById(long id);
+
+    List<Post> findAllByLanguage(String language);
 }
