@@ -1,5 +1,9 @@
 import React from 'react';
 import Navigation from './Navigation';
+import {Link} from 'react-router-dom';
+
+
+
 
 class JavaScriptPage extends React.Component{
     constructor(props){
@@ -10,8 +14,26 @@ class JavaScriptPage extends React.Component{
         return(
             <div id='javaPage'>
                 <Navigation/>
-                <b>JavaScript</b>
-            </div>
+        <div class="row">
+        <div class="col-sm-2">
+        <ul class="nav flex-column">
+  <li class="nav-item">
+    <Link class="nav-link active" to={{pathname:'/javascript/react'}}>React</Link>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Other</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Other</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Other</a>
+  </li>
+</ul>
+</div>
+</div>
+</div>
+            
         )
     }
 }

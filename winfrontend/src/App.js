@@ -5,6 +5,9 @@ import Home from './components/Home';
 import Error from './components/Error';
 import UserList from './components/UserList';
 import JavaScriptPage from './components/JavaScriptPage';
+import ReactPage from './components/ReactPage';
+
+
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
           <Route path='/allUsers' component={UserList}/>
           <Route exact path='/javascript' component={JavaScriptPage}/>
           <Route exact path='/' component={Home}/>
+          <Route exact path='/javascript/react' component={ReactPage}/>
           <Route component={Error}/>
         </Switch>
       </BrowserRouter>

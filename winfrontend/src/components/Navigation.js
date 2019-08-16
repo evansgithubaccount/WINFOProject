@@ -14,10 +14,13 @@ class Navigation extends React.Component{
                 <div id='navLogo'>WIN Resources</div>
                 <hr></hr>
                 <NavLink className='nav-item' to={{pathname:'/'}}>Home</NavLink>
+                <NavLink className='nav-item' to={{pathname:'javascript'}}>Javascript</NavLink>
                 <hr></hr>
             </div>
         )
     }
 }
+
+
 
 export default Navigation;

@@ -5,3 +5,15 @@ div{
 #navLogo{
     font-size:110%;
 }
+
+.nav-item {
+    margin-right:1.5%;
+    margin-left:1.5%;
+    display:inline-block;
+    width:5vw;
+}
+
+.flex-column {
+    background-color: yellow;
+    position: fixed;
+}
