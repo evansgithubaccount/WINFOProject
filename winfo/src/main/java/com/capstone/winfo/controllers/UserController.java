@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -47,7 +47,6 @@ public class UserController {
         userService.save(user);
         return new ResponseEntity("User upload added successfully", HttpStatus.OK);
     }
-
 
     @GetMapping("/users/{id}")
     public ResponseEntity<?> editUser(@PathVariable Long id, Model model) {

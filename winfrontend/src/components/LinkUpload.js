@@ -24,8 +24,19 @@ class LinkUpload extends React.Component{
             .then(
                 response => {
                     console.log(response)
+                    if(response.status === 200){
+                        alert("Upload Successful!")
+                        e.target.elements.uploadTitle.value = null;
+                        e.target.elements.uploadDescription.value = null;
+                        e.target.elements.uploadURL.value = null;
+                        e.target.elements.infoType.value = 'documentation';
+                    }else{
+                        alert("Upload Failed")
+                    }
                 }
-            )
+            ).catch(() => {
+                alert("Failed To Connect To Server")
+            })
     }
 
     render(){
@@ -56,6 +67,23 @@ class LinkUpload extends React.Component{
                             </td>
                             <td>
                                 <textarea name='uploadDescription'></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className='prompt'>
+                                Topic: 
+                            </td>
+                            <td>
+                                <select name='topic'>
+                                    <option value='none'>---Select Topic---</option>
+                                    <option value='CSHARP'>C#</option>
+                                    <option value='CSS'>CSS</option>
+                                    <option value='HTML'>HTML</option>
+                                    <option value='JAVA'>Java</option>
+                                    <option value='JAVASCRIPT'>JavaScript</option>
+                                    <option value='SPRINGBOOT'>Spring Boot</option>
+                                    <option value='SQL'>SQL</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>

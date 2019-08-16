@@ -4,7 +4,10 @@ div{
 
 #navLogo{
     font-size:110%;
+    margin-top: 0.75%;
+    margin-bottom: -0.75%;
 }
+
 
 .nav-item {
     margin-right:1.5%;

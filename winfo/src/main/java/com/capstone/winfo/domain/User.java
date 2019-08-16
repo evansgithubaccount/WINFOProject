@@ -1,6 +1,7 @@
 package com.capstone.winfo.domain;
 
 import com.capstone.winfo.domain.posting.Post;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,6 +36,7 @@ public class User implements UserDetails {
     @Builder.Default
     @ElementCollection
     @OneToMany(fetch = FetchType.LAZY, mappedBy="uploader")
+    @JsonManagedReference
     private List<Post> uploads = new ArrayList<>();
 
     @Builder.Default

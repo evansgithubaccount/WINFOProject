@@ -5,20 +5,20 @@ import {Link} from 'react-router-dom';
 
 
 
-class JavaScriptPage extends React.Component{
+class CSharpPage extends React.Component{
     constructor(props){
         super(props)
     }
 
     render(){
         return(
-            <div id='javaScriptPage'>
+            <div id='cSharpPage'>
                 <Navigation/>
         <div class="row">
         <div class="col-sm-2">
         <ul class="nav flex-column">
   <li class="nav-item">
-    <Link class="nav-link active" to={{pathname:'/javascript/react'}}>React</Link>
+    <Link class="nav-link active" to={{pathname:'/javascript/react'}}>TBD C#</Link>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Other</a>
@@ -38,4 +38,4 @@ class JavaScriptPage extends React.Component{
     }
 }
 
-export default JavaScriptPage;
+export default CSharpPage;

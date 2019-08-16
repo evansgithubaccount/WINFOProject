@@ -11,10 +11,15 @@ class Navigation extends React.Component{
     render(){
         return(
             <div id='navMain'>
-                <div id='navLogo'>WIN Resources</div>
+                <div id='navLogo'><span>WIN Resources</span></div>
                 <hr></hr>
+                <NavLink className='nav-item' to={{pathname:'/css'}}>CSS</NavLink>
+                <NavLink className='nav-item' to={{pathname:'/html'}}>HTML</NavLink>
+                <NavLink className='nav-item' to={{pathname:'/javascript'}}>Javascript</NavLink>
                 <NavLink className='nav-item' to={{pathname:'/'}}>Home</NavLink>
-                <NavLink className='nav-item' to={{pathname:'javascript'}}>Javascript</NavLink>
+                <NavLink className='nav-item' to={{pathname:'/java'}}>Java</NavLink>
+                <NavLink className='nav-item' to={{pathname:'/sql'}}>SQL</NavLink>
+                <NavLink className='nav-item' to={{pathname:'/csharp'}}>C#</NavLink>
                 <hr></hr>
             </div>
         )
