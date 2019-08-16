@@ -5,9 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -15,20 +19,22 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String username;
+    @NotNull
     private String password;
     private Boolean admin;
     private String profilePic;
 
     @Builder.Default
     @ElementCollection
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "uploader")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="uploader")
     private List<Post> uploads = new ArrayList<>();
 
     @Builder.Default
@@ -38,4 +44,22 @@ public class User {
     @Builder.Default
     @ElementCollection
     private List<Post> savedPosts = new ArrayList<>();
+
+    @Transient
+    private boolean accountNonExpired = true;
+    @Transient
+    private boolean accountNonLocked = true;
+    @Transient
+    private boolean credentialsNonExpired = true;
+    @Transient
+    private boolean enabled = true;
+    @Transient
+    private Collection<GrantedAuthority> authorities = null;
+
+    @Column(name = "edit_user")
+    boolean edit = false;
+
+    public void addUpload(Post post){
+        uploads.add(post);
+    }
 }
