@@ -14,6 +14,18 @@ div{
 }
 
 .flex-column {
-    background-color: yellow;
+    background-color: purple;
     position: fixed;
+}
+
+.nav-item {
+text-decoration: none;
+ }   
+
+ #demo.width {
+    height: auto;
+    -webkit-transition: width 0.35s ease;
+    -moz-transition: width 0.35s ease;
+    -o-transition: width 0.35s ease;
+    transition: width 0.35s ease;
 }
