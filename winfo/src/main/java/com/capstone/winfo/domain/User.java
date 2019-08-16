@@ -34,7 +34,7 @@ public class User implements UserDetails {
 
     @Builder.Default
     @ElementCollection
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "uploader")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="uploader")
     private List<Post> uploads = new ArrayList<>();
 
     @Builder.Default
@@ -58,4 +58,8 @@ public class User implements UserDetails {
 
     @Column(name = "edit_user")
     boolean edit = false;
+
+    public void addUpload(Post post){
+        uploads.add(post);
+    }
 }

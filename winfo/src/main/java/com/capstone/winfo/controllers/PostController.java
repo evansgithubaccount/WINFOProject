@@ -1,8 +1,10 @@
 package com.capstone.winfo.controllers;
 
 
+import com.capstone.winfo.domain.User;
 import com.capstone.winfo.domain.posting.Post;
 import com.capstone.winfo.services.PostService;
+import com.capstone.winfo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +18,18 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/allPosts")
     public List<Post> getAllPosts(){
         return postService.getAllPosts();
     }
 
-    @PostMapping("/addPost/{title}/{description}/{url}")
-    public ResponseEntity<?> addPost(@PathVariable("title") String title, @PathVariable("description") String description, @PathVariable("url") String url) {
-        Post post = Post.builder().title(title).description(description).url(url).build();
+    @PostMapping("/addPost/{title}/{description}/{url}/{userID}")
+    public ResponseEntity<?> addPost(@PathVariable("title") String title, @PathVariable("description") String description, @PathVariable("url") String url, @PathVariable("userID") Long userID) {
+        User user = userService.findById(userID);
+        Post post = Post.builder().title(title).description(description).url(url).uploader(user).build();
         postService.savePost(post);
         return new ResponseEntity("Post added successfully", HttpStatus.OK);
     }
@@ -38,6 +44,7 @@ public class PostController {
             case "DESCRIPTION": post.setDescription(value);break;
             case "PROBLEMSTATEMENT": post.setProblemStatement(value);break;
             case "SAVENUM": post.setSaveNum(post.getSaveNum()+1);break;
+            case "UPLOADER": post.setUploader(userService.findById(Long.parseLong(value)));break;
             default: return new ResponseEntity("Invalid Field Entered", HttpStatus.OK);
         }
 
