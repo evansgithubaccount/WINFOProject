@@ -12,7 +12,6 @@ import java.util.List;
 
 @Data
 @Entity
-@Builder
 @NoArgsConstructor
 public class Topic {
 
@@ -27,6 +26,5 @@ public class Topic {
 
     @ElementCollection
     @OneToMany(fetch = FetchType.LAZY, mappedBy="topic")
-    @Builder.Default
     private List<Post> posts = new ArrayList<>();
 }

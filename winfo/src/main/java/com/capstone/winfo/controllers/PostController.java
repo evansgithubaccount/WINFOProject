@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class PostController {
 
     @Autowired
@@ -25,11 +26,11 @@ public class PostController {
     public List<Post> getAllPosts(){
         return postService.getAllPosts();
     }
-
-    @PostMapping("/addPost/{title}/{description}/{url}/{userID}")
-    public ResponseEntity<?> addPost(@PathVariable("title") String title, @PathVariable("description") String description, @PathVariable("url") String url, @PathVariable("userID") Long userID) {
+    
+    @PostMapping("/addPost/{title}/{description}/{url}/{type}/{userID}")
+    public ResponseEntity<?> addPost(@PathVariable("title") String title, @PathVariable("description") String description, @PathVariable("url") String url, @PathVariable("userID") Long userID, @PathVariable("type") String type) {
         User user = userService.findById(userID);
-        Post post = Post.builder().title(title).description(description).url(url).uploader(user).build();
+        Post post = Post.builder().title(title).description(description).url(url).uploader(user).type(type).build();
         postService.savePost(post);
         return new ResponseEntity("Post added successfully", HttpStatus.OK);
     }

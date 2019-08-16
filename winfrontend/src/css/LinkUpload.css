@@ -1,0 +1,23 @@
+.linkUploadContainer{
+    height:25%;
+    width:28vw;
+    border:2px solid #000000;
+    display:block;
+    overflow:scroll;
+    margin-top: 1.5vh;
+    float: right;
+    margin-left:67vw;
+    position:fixed;
+}
+
+td{
+    text-align:left;
+}
+
+.prompt{
+    text-align:right;
+}
+
+form{
+    margin-top:10px;
+}
