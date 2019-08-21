@@ -1,6 +1,7 @@
 package com.capstone.winfo.domain;
 
 import com.capstone.winfo.domain.posting.Post;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,8 +29,11 @@ public class User implements UserDetails {
 
     @NotNull
     private String username;
+
     @NotNull
+    @JsonIgnore
     private String password;
+
     private Boolean admin;
     private String profilePic;
 
@@ -46,6 +50,12 @@ public class User implements UserDetails {
     @Builder.Default
     @ElementCollection
     private List<Post> savedPosts = new ArrayList<>();
+
+    @Builder.Default
+    @ElementCollection
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="user")
+    @JsonManagedReference
+    private List<UserProject> userProjects = new ArrayList<>();
 
     @Transient
     private boolean accountNonExpired = true;

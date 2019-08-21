@@ -17,8 +17,19 @@ class LinkUpload extends React.Component{
 
         const title = e.target.elements.uploadTitle.value;
         const description = e.target.elements.uploadDescription.value;
-        const url = e.target.elements.uploadURL.value;
+        let url = e.target.elements.uploadURL.value;
         const type = e.target.elements.infoType.value;
+
+        let containsHTTP = url.includes("http");
+        let containsHTTPS = url.includes("https");
+
+        if(containsHTTPS){
+            let newURL = url.replace("https://","");
+            url = newURL;
+        }else if(containsHTTP){
+            let newURL = url.replace("http://","");
+            url = newURL;
+        }
 
         PostDataService.uploadPost(title, description, url, type)
             .then(
@@ -26,10 +37,10 @@ class LinkUpload extends React.Component{
                     console.log(response)
                     if(response.status === 200){
                         alert("Upload Successful!")
-                        e.target.elements.uploadTitle.value = null;
-                        e.target.elements.uploadDescription.value = null;
-                        e.target.elements.uploadURL.value = null;
-                        e.target.elements.infoType.value = 'documentation';
+                        // e.target.elements.uploadTitle.value = "";
+                        // e.target.elements.uploadDescription.value = "";
+                        // e.target.elements.uploadURL.value = "";
+                        // e.target.elements.infoType.value = 'documentation';
                     }else{
                         alert("Upload Failed")
                     }

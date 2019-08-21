@@ -32,3 +32,66 @@ text-decoration: none;
     -o-transition: width 0.35s ease;
     transition: width 0.35s ease;
 }
+
+/* .collapse{
+    visibility:hidden;
+}
+
+.collapse.show {
+    visibility: visible;
+    height: auto;
+    -webkit-transition: width 0.35s ease;
+    -moz-transition: width 0.35s ease;
+    -o-transition: width 0.35s ease;
+    transition: width 0.35s ease;
+    /* display:block; */
+
+    .collapse {
+        height: auto;
+        width: auto;
+        transition: 0.35s ease;
+      }
+
+      
+      
+      .collapse.height {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        -webkit-transition: height 0.35s ease;
+        -moz-transition: height 0.35s ease;
+        -o-transition: height 0.35s ease;
+        transition: height 0.35s ease;
+      }
+      
+      .collapse.width {
+        position: relative;
+        width: 0;
+        overflow: hidden;
+        -webkit-transition: width 0.35s ease;
+        -moz-transition: width 0.35s ease;
+        -o-transition: width 0.35s ease;
+        transition: width 0.35s ease;
+      }
+      
+      .collapse.in.width {
+        width: auto;
+      }
+
+      .collapseLink{
+          margin-right: 10px;
+          margin-left:10px;
+      }
+      
+
+/* .collapsing{
+    position: relative;
+    height: 0; 
+    overflow: hidden;
+    -webkit-transition-property: width, visibility; 
+    transition-property: width, visibility;
+    -webkit-transition-duration: 0.35s; 
+    transition-duration: 0.35s;  
+    -webkit-transition-timing-function: ease;  
+    transition-timing-function: ease;
+} */
