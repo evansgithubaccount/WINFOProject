@@ -30,6 +30,7 @@ class Login extends React.Component{
                     showSuccessMessage: false,
                     loginFailed: true
                 })
+                console.log('login failed');
             })
     }
 

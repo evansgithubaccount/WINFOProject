@@ -59,8 +59,10 @@ public class Post {
 
     private String problemStatement;
 
-    private int saveNum;
+    @Builder.Default
+    private int saveNum = 0;
 
-    private int likeNum;
+    @Builder.Default
+    private int likeNum = 0;
 
 }

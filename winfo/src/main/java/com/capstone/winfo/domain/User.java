@@ -3,10 +3,7 @@ package com.capstone.winfo.domain;
 import com.capstone.winfo.domain.posting.Post;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,6 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
+@ToString(exclude = "password")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,7 +32,9 @@ public class User implements UserDetails {
     @JsonIgnore
     private String password;
 
-    private Boolean admin;
+    @Builder.Default
+    private Boolean admin = false;
+
     private String profilePic;
 
     @Builder.Default

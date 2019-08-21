@@ -5,7 +5,7 @@ const AUTH_URL = '/signin'
 
 class AuthenticationService{
     executeBasicAuthentication(username, password){
-        return axios.get(API_URL+AUTH_URL, {headers: {authorization: this.createBasicAuthToken(username, passowrd)}})
+        return axios.post(`${API_URL}/signup/${username}/${password}`)
     }
 
     createBasicAuthToken(username, password){
@@ -13,7 +13,7 @@ class AuthenticationService{
     }
 
     registerSuccessfulLogin(username, password){
-        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+        sessionStorage.setItem('authenticatedUser', username)
         this.setupAxiosInterceptors(this.createBasicAuthToken(username, password))
     }
 
