@@ -26,8 +26,11 @@ class Navigation extends React.Component {
 
                 <div id="demo" class="collapse in width">
                     <div>
+                        <Link to={{pathname:'/css'}} className='collapseLink'>CSS</Link>
+                        <Link to={{pathname:'/html'}} className='collapseLink'>HTML</Link>
+                        <Link to={{pathname:'/javascript'}} className='collapseLink'>JavaScript</Link>
                         <Link to={{pathname:'/java'}} className='collapseLink'>Java</Link>
-                        <Link to={{pathname:'/html'}}>HTML</Link>
+                        <Link to={{pathname:'/sql'}} className='collapseLink'>SQL</Link>
                     </div>
                 </div>
             </nav>
