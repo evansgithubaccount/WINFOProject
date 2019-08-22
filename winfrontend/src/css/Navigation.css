@@ -16,9 +16,12 @@ div{
     width:5vw;
 }
 
-.col-sm-1{
+.stuff {
+  margin-top: 10px;
+}
+.subNav{
     background-color: lightcoral;
-    height: 100vh;
+    /* height: 100vh; */
 }
 .nav-item {
 text-decoration: none;
@@ -32,6 +35,9 @@ text-decoration: none;
     transition: width 0.35s ease;
 }
 
+.navText {
+  color: white;
+}
 
 
     .collapse {
