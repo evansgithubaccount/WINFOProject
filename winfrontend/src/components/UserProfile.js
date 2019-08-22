@@ -127,18 +127,10 @@ class UserProfile extends React.Component {
                                     <span>2010/06/20</span>
                                 </div>
                             </div>
-
-                            <div class="profile-info-row">
-                                <div class="profile-info-name"> Last Online </div>
-
-                                <div class="profile-info-value">
-                                    <span>3 hours ago</span>
-                                </div>
-                            </div>
                         </div>
 
                                 <div class="hr hr-8 dotted"></div>
-                    </div>  //.col 
+                    </div>   
                 </div>
             </div>
         </div>
