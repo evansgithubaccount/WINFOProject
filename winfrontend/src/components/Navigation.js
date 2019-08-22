@@ -38,6 +38,4 @@ class Navigation extends React.Component {
     }
 }
 
-
-
 export default Navigation;
