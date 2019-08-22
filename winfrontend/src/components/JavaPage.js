@@ -22,14 +22,11 @@ class JavaPage extends React.Component {
                                 <Link class="nav-link active" to={{ pathname: '/javascript/react' }}>React</Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Other</a>
-                            </li>
+                                <Link class="nav-link active" to={{ pathname: '/javascript/react' }}>React</Link>                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Other</a>
-                            </li>
+                                <Link class="nav-link active" to={{ pathname: '/javascript/react' }}>React</Link>                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Other</a>
-                            </li>
+                                <Link class="nav-link active" to={{ pathname: '/javascript/react' }}>React</Link>                            </li>
                         </ul>
                     </div>
                     {/*</div>*/}
