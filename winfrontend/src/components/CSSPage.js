@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './Navigation';
 import { Link } from 'react-router-dom';
-
+import {withRouter} from 'react-router-dom';
 
 
 
@@ -86,4 +86,4 @@ class CSSPage extends React.Component {
     }
 }
 
-export default CSSPage;
+export default withRouter(CSSPage);

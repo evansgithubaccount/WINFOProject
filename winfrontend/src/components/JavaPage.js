@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './Navigation';
 import { Link } from 'react-router-dom';
-
+import {withRouter} from 'react-router-dom';
 
 
 
@@ -13,7 +13,6 @@ class JavaPage extends React.Component {
     render() {
         return (
             <div id='javaPage'>
-                <Navigation />
                 <div class="row">
                     {/*<div class="col-sm-2" id="sideBar">*/}
                     <div class="col-sm-1">
@@ -51,4 +50,4 @@ class JavaPage extends React.Component {
     }
 }
 
-export default JavaPage;
+export default withRouter(JavaPage);

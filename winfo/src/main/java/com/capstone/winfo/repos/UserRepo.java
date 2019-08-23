@@ -12,4 +12,5 @@ public interface UserRepo extends CrudRepository<User, Long> {
     List<User> findAll();
     User findById(long id);
     void deleteById(long id);
+    boolean existsByUsername(String username);
 }

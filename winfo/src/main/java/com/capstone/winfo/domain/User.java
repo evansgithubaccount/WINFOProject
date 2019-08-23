@@ -9,9 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import javax.validation.constraints.Size;
+import java.util.*;
 
 @Data
 @ToString(exclude = "password")
@@ -28,8 +27,11 @@ public class User implements UserDetails {
     @NotNull
     private String username;
 
+    private String name;
+
     @NotNull
-    @JsonIgnore
+    //@JsonIgnore
+    @Size(max=100)
     private String password;
 
     @Builder.Default
@@ -57,6 +59,13 @@ public class User implements UserDetails {
     @JsonManagedReference
     private List<UserProject> userProjects = new ArrayList<>();
 
+    @Builder.Default
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="role_id"))
+    private Set<Role> roles = new HashSet<>();
+
     @Transient
     private boolean accountNonExpired = true;
     @Transient
@@ -65,13 +74,18 @@ public class User implements UserDetails {
     private boolean credentialsNonExpired = true;
     @Transient
     private boolean enabled = true;
-    @Transient
-    private Collection<GrantedAuthority> authorities = null;
+//    @Transient
+//    private Collection<GrantedAuthority> authorities = null;
 
     @Column(name = "edit_user")
     boolean edit = false;
 
     public void addUpload(Post post){
         uploads.add(post);
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 }

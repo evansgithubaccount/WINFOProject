@@ -8,8 +8,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Configuration
 @CrossOrigin
 public class WebMvcConfiguration {
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 }

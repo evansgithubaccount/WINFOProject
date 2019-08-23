@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class Error extends React.Component{
     constructor(){
@@ -14,4 +15,4 @@ class Error extends React.Component{
     }
 }
 
-export default Error;
+export default withRouter(Error);
