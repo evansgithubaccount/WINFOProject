@@ -22,14 +22,11 @@ class CSSPage extends React.Component {
                                 <Link class="nav-link active" to={{pathname: '/javascript/react'}}>React</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Other</a>
-                            </li>
+                                <Link class="nav-link active" to={{pathname: '/javascript/react'}}>React</Link></li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Other</a>
-                            </li>
+                                <Link class="nav-link active" to={{pathname: '/javascript/react'}}>React</Link></li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Other</a>
-                            </li>
+                                <Link class="nav-link active" to={{pathname: '/javascript/react'}}>React</Link></li>
                         </ul>
                     </div>
                     {/*</div>*/}
