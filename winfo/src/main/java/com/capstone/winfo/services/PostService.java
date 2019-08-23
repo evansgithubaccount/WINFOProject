@@ -32,4 +32,8 @@ public class PostService {
     public List<Post> getPostsByLanguage(String language){
         return postRepo.findAllByLanguage(language);
     }
+
+     public List<Post> searchByTitleOrDescription(String string){
+        List<Post> titleContains = postRepo.findByTitleContaining(string);
+        return titleContains;
 }
