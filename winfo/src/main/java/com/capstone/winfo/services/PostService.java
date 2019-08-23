@@ -28,4 +28,9 @@ public class PostService {
     public void deletePost(long id){
         postRepo.deleteById(id);
     }
+
+    public List<Post> searchByTitleOrDescription(String string){
+        List<Post> titleContains = postRepo.findByTitleContaining(string);
+        return titleContains;
+    }
 }
