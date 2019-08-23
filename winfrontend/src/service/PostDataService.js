@@ -3,7 +3,8 @@ import axios from 'axios';
 const API_URL = 'http://localhost:8080';
 const UPLOAD_URL = '/addPost/';
 const ALL_POSTS = '/allPosts';
-const SLASH = '/'
+const SLASH = '/';
+const LANG_POSTS = '/posts/lang/'
 
 class PostDataService {
 
@@ -13,6 +14,10 @@ class PostDataService {
     
     retrieveAllPosts(){
         return axios.get(API_URL + ALL_POSTS);
+    }
+
+    retrieveLanguagePosts(language){
+        return axios.get(API_URL + LANG_POSTS + language)
     }
 }
 

@@ -24,7 +24,7 @@ class Navigation extends React.Component {
         if (this.props.currentUser) {
             menuItems = [
                 <Menu.Item key="/profile" className="profile-menu menuItem" >
-                    <ProfileDropdownMenu currentUser={this.props.currentUser} handleMenuClick={this.handleMenuClick} />
+                    <ProfileDropdownMenu currentUser={this.props.currentUser} onLogout={this.props.onLogout} />
                 </Menu.Item>
             ];
         } else {
@@ -98,7 +98,7 @@ function ProfileDropdownMenu(props) {
             <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                 {props.currentUser.username}
             </button>
-            <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+            <div className='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>
                 <Link className='dropdown-item bootDrop' to={`/users/${props.currentUser.username}`}>Profile</Link>
                 <Link onClick={props.onLogout} className='dropdown-item bootDrop'>Logout</Link>
             </div>

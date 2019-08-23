@@ -1,68 +1,44 @@
 import React from 'react';
 import Navigation from './Navigation';
 import { Link } from 'react-router-dom';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import PostDataService from '../service/PostDataService';
+import Post from './Post';
+import '../css/LanguagePage.css';
 
 
 
 class JavaPage extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            posts: []
+        }
+        this.getJavaPosts = this.getJavaPosts.bind(this);
+    }
+
+    componentDidMount(){
+        this.getJavaPosts();
+    }
+
+    getJavaPosts(){
+        PostDataService.retrieveLanguagePosts('java')
+        .then(
+            response => {
+                this.setState({
+                    posts: response.data
+                })
+            }
+        )
     }
 
     render() {
         return (
             <div id='javaPage'>
                 <div class="row">
-                    {/*<div class="col-sm-2" id="sideBar">*/}
-                    <div>
-                        <ul class="nav subNav justify-content-md-center">
-                            <li class="nav-item">
-                                <Link class="nav-link navText" to={{ pathname: '/javascript/react' }}>React</Link>
-                            </li>
-                            <li class="nav-item">
-                                <Link class="nav-link navText" to={{ pathname: '/javascript/react' }}>React</Link>                            </li>
-                            <li class="nav-item">
-                                <Link class="nav-link navText" to={{ pathname: '/javascript/react' }}>React</Link>                            </li>
-                            <li class="nav-item">
-                                <Link class="nav-link navText" to={{ pathname: '/javascript/react' }}>React</Link>                            </li>
-                        </ul>
-                    </div>
-
-                    {/*</div>*/}
-                    <div class="row justify-content-md-center">
-                    <div class="col-sm-3 stuff">
-                    <div class="card">
-                        <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        </div>
-                       
-                    </div>
-                    
-                    
-                    <div class="col-sm-3 stuff">
-                    <div class="card">
-                        <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        </div>
-                       
-                    </div>
-                    <div class="col-sm-3 stuff">
-                    <div class="card">
-                        <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        </div>
-                       
-                    </div>
-
-                    
-                    
+                {this.state.posts.map(function(post){
+                    return(<Post title={post.title} description={post.description} url={post.url}></Post>)
+                })}
                 </div>
             </div>
 

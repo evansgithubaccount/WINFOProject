@@ -28,4 +28,8 @@ public class PostService {
     public void deletePost(long id){
         postRepo.deleteById(id);
     }
+
+    public List<Post> getPostsByLanguage(String language){
+        return postRepo.findAllByLanguage(language);
+    }
 }

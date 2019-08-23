@@ -1,24 +1,24 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Post extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            id: this.props.id,
-            title: this.props.title,
-            description: this.props.description,
-            url: this.props.url,
-            uploader: this.props.uploader,
-            language: this.props.language,
-            topic: this.props.topic,
-            project: this.props.project
-        }
+    }
+
+    componentDidMount(){
+        console.log(this.props.url)
     }
 
     render(){
         return(
             <div className='post'>
-                
+                <div className='postTitle' className='card'>
+                    <div className='card-body'>
+                        <a target='_blank' href={`https://${this.props.url}`} className='card-title'>{this.props.title}</a>
+                        <p class="card-text">{this.props.description}</p>
+                    </div>
+                </div>
             </div>
         )
     }
