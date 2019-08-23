@@ -36,6 +36,10 @@ public class UserService implements UserDetailsService {
         return userRepo.findById(id);
     }
 
+    public boolean existsByUsername(String username){
+        return userRepo.existsByUsername(username);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = findByUsername(username);

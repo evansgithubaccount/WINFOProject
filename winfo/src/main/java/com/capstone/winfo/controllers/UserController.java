@@ -1,7 +1,11 @@
 package com.capstone.winfo.controllers;
 
 import com.capstone.winfo.domain.User;
+import com.capstone.winfo.domain.UserSummary;
 import com.capstone.winfo.domain.posting.Post;
+import com.capstone.winfo.security.CurrentUser;
+import com.capstone.winfo.security.JwtTokenProvider;
+import com.capstone.winfo.security.UserPrincipal;
 import com.capstone.winfo.services.PostService;
 import com.capstone.winfo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +31,27 @@ public class UserController {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private JwtTokenProvider tokenProvider;
+
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userService.findAll();
+    }
+
+    @GetMapping("/users/{username}")
+    public User getUserProfile(@PathVariable("username") String username){
+        return userService.findByUsername(username);
+    }
+
+    @GetMapping("/user/me/{token}")
+    public UserSummary getCurrentUser(@PathVariable("token") String atok){
+        if(StringUtils.hasText(atok) && tokenProvider.validateToken(atok)){
+            Long userId = tokenProvider.getUserIdFromJWT(atok);
+            User user = userService.findById(userId);
+            return UserSummary.builder().username(user.getUsername()).id(user.getId()).name(user.getName()).build();
+        }
+        return null;
     }
 
     @PostMapping("/addUser/{username}/{password}")
@@ -52,7 +75,7 @@ public class UserController {
         return new ResponseEntity("User upload added successfully", HttpStatus.OK);
     }
 
-    @GetMapping("/users/{id}")
+    @PutMapping("/users/{id}")
     public ResponseEntity<?> editUser(@PathVariable Long id, Model model) {
         clearEdit();
         List<User> userList = userService.findAll();

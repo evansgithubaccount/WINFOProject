@@ -1,5 +1,6 @@
 import React from 'react';
 import PostDataService from '../service/PostDataService';
+import {withRouter} from 'react-router-dom';
 
 class LinkUpload extends React.Component{
     constructor(props){
@@ -12,7 +13,7 @@ class LinkUpload extends React.Component{
         }
     }
 
-    uploadPost = e => {
+    uploadPost(e){
         e.preventDefault();
 
         const title = e.target.elements.uploadTitle.value;
@@ -120,4 +121,4 @@ class LinkUpload extends React.Component{
     }
 }
 
-export default LinkUpload;
+export default withRouter(LinkUpload);
