@@ -13,27 +13,28 @@ public class PostService {
     @Autowired
     private PostRepo postRepo;
 
-    public List<Post> getAllPosts(){
+    public List<Post> getAllPosts() {
         return postRepo.findAll();
     }
 
-    public void savePost(Post post){
+    public void savePost(Post post) {
         postRepo.save(post);
     }
 
-    public Post findById(long id){
+    public Post findById(long id) {
         return postRepo.findById(id);
     }
 
-    public void deletePost(long id){
+    public void deletePost(long id) {
         postRepo.deleteById(id);
     }
 
-    public List<Post> getPostsByLanguage(String language){
+    public List<Post> getPostsByLanguage(String language) {
         return postRepo.findAllByLanguage(language);
     }
 
-     public List<Post> searchByTitleOrDescription(String string){
+    public List<Post> searchByTitleOrDescription(String string) {
         List<Post> titleContains = postRepo.findByTitleContaining(string);
         return titleContains;
+    }
 }

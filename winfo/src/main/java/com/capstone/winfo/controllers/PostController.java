@@ -58,8 +58,6 @@ public class PostController {
     public ResponseEntity<?> deletePost(@PathVariable("id") Long id){
         postService.deletePost(id);
         return new ResponseEntity("Post successfully deleted", HttpStatus.OK);
-
-
     }
 
     @GetMapping("/posts/lang/{language}")

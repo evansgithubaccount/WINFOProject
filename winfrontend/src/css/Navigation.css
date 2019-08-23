@@ -120,16 +120,6 @@ text-decoration: none;
         font-size: 14px;
         color: rgba(0,0,0,0.65);
       }
-    
-      .dropdown-item {
-        padding: 10px 12px;
-      }
-    
-      .dropdown-item a {
-        padding: 10px 12px;
-        margin: -10px -12px;
-      }
-      
       .nav-icon {
         font-size: 20px;
       }
@@ -168,12 +158,13 @@ text-decoration: none;
 
   .app-menu {
     float: right;
-    margin-right: 1%;
+    right:0px;
     position: absolute;
-    margin-left: 80%;
     /* border: 2px solid red; */
   }
 
   .dropdown-menu {
-    float: left;
+    right: 0;
+    left: auto;
+    padding:-5%;
   }
