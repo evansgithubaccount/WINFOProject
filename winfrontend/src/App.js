@@ -17,6 +17,7 @@ import {notification, Layout} from 'antd';
 import UserProfile from './components/UserProfile';
 import Navigation from './components/Navigation';
 import Signup from './components/Auth/Signup';
+import SearchResults from './components/SearchResults'
 
 import {ACCESS_TOKEN} from './constants';
 
@@ -106,10 +107,10 @@ class App extends React.Component {
               <Route exact path='/html' component={HTMLPage} />
               <Route exact path='/sql' component={SQLPage} />
               <Route exact path='/csharp' component={CSharpPage} />
-              <Route exact path='/profile' component={UserProfile}/>
               <Route exact path='/login' render={(props)=><Login isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} onLogin={this.handleLogin} {...props}/>}></Route>
               <Route exact path='/signup' render={(props)=><Signup isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props}/>}></Route>
-              <Route path = '/u/:username' render={(props)=><UserProfile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props}/>}></Route>
+              <Route exact path = '/u/:username' render={(props)=><UserProfile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props}/>}></Route>
+              <Route exact path = '/search' render={(props)=><SearchResults isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props}/>}></Route>
               <Route component={Error} />
             </Switch>
       </div>

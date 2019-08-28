@@ -5,6 +5,7 @@ const UPLOAD_URL = '/addPost/';
 const ALL_POSTS = '/allPosts';
 const SLASH = '/';
 const LANG_POSTS = '/posts/lang/'
+const SEARCH_URL = '/search/';
 
 class PostDataService {
 
@@ -18,6 +19,10 @@ class PostDataService {
 
     retrieveLanguagePosts(language){
         return axios.get(API_URL + LANG_POSTS + language)
+    }
+
+    searchForPosts(query){
+        return axios.get(API_URL+SEARCH_URL+query);
     }
 }
 

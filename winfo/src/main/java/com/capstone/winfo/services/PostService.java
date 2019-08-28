@@ -34,7 +34,9 @@ public class PostService {
     }
 
     public List<Post> searchByTitleOrDescription(String string) {
-        List<Post> titleContains = postRepo.findByTitleContaining(string);
-        return titleContains;
+        List<Post> titles =  postRepo.findByTitleContaining(string);
+        List<Post> descriptions = postRepo.findByDescriptionContaining(string);
+        titles.addAll(descriptions);
+        return titles;
     }
 }

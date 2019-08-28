@@ -1,20 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 import '../css/Navigation.css';
-import { Menu, Layout, Dropdown, Icon } from 'antd';
+import { Menu, Layout, Dropdown, Icon, Input } from 'antd';
 
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.handleMenuClick = this.handleMenuClick.bind(this);
+        this.searchRedirect = this.searchRedirect.bind(this);
         this.state = {};
     }
 
     handleMenuClick({ key }) {
         if (key === 'logout')
             this.props.onLogout();
+    }
+
+    searchRedirect(e){
+        e.preventDefault();
+        const query = document.getElementsByTagName("Input")[0].value;
+        this.props.history.push(`/search/?q=${query}`);
     }
 
     render() {
@@ -63,6 +70,7 @@ class Navigation extends React.Component {
                         <Link to={{ pathname: '/sql' }} className='collapseLink'>SQL</Link>
                     </div>
                 </div>
+                <Input name='searchBar' placeholder="Search for posts" enterButton onSearch={this.searchRedirect} onPressEnter={this.searchRedirect}/>
                 <Menu
                     className="app-menu"
                     mode="inline"

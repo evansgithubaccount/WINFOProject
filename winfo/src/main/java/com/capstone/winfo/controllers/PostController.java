@@ -67,4 +67,9 @@ public class PostController {
         }
         return  null;
     }
+
+    @GetMapping("/search/{query}")
+    public List<Post> search(@PathVariable("query") String query){
+        return postService.searchByTitleOrDescription(query);
+    }
 }

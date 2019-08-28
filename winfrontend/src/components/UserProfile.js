@@ -69,7 +69,7 @@ class UserProfile extends React.Component {
                                     </div>
                                     <div class="profile-usertitle-job">
                                         Developer
-                        </div>
+                                    </div>
                                 </div>
                                 /* END SIDEBAR USER TITLE */
 
