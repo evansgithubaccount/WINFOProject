@@ -16,11 +16,11 @@ class SearchResults extends React.Component {
 
     componentDidMount() {
         const values = queryString.parse(this.props.location.search);
-        console.log(values)
+        const term = decodeURIComponent(values.q);
         this.setState({
-            query: values.q
+            query: term
         })
-        this.search(values.q);
+        this.search(term);
     }
 
     search(query) {

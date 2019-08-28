@@ -2,7 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import '../css/Navigation.css';
-import { Menu, Layout, Dropdown, Icon, Input } from 'antd';
+import { Menu, Layout, Dropdown, Icon, Input, Popover, Button } from 'antd';
+import LinkPopover from './LinkPopover';
 
 
 class Navigation extends React.Component {
@@ -21,7 +22,8 @@ class Navigation extends React.Component {
     searchRedirect(e){
         e.preventDefault();
         const query = document.getElementsByTagName("Input")[0].value;
-        this.props.history.push(`/search/?q=${query}`);
+        const encodedQuery = encodeURIComponent(encodeURIComponent(query));
+        this.props.history.push(`/search/?q=${encodedQuery}`);
     }
 
     render() {
@@ -42,6 +44,12 @@ class Navigation extends React.Component {
                 </Menu.Item>
             ]
         }
+
+        const uploadContainer = (
+            <form>
+
+            </form>
+        )
 
         return (
             // <div id='navMain'>
@@ -75,7 +83,7 @@ class Navigation extends React.Component {
                     className="app-menu"
                     mode="inline"
                     selectedKeys={[this.props.location.pathname]}
-                    style={{ lineHeight: '64px' }} >
+                    style={{ lineHeight: '60px' }} >
                     {menuItems}
                 </Menu>
             </nav>

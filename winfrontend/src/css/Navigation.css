@@ -176,3 +176,8 @@ text-decoration: none;
     margin-left: 66%;
     margin-right: 10%;
   }
+
+  LinkPopover {
+    display: inline-block;
+    border: 2px solid red;
+  }
