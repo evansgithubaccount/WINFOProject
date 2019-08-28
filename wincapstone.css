@@ -1,0 +1,10 @@
+.jumbo{
+    /* font-family: 'Graduate', cursive; */
+    margin-right: auto;
+    margin-left: auto;
+    position: sticky;
+    font-family: 'Mukta Mahee', sans-serif;
+  }
+  .second{
+      text-align: center;
+  }
