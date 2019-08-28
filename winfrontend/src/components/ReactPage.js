@@ -9,7 +9,6 @@ class ReactPage extends React.Component{
     render(){
         return(
             <div className='reactPage'>
-                <Navigation/>
                 <p>React Page Test</p>
             </div>
         )

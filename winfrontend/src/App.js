@@ -109,6 +109,7 @@ class App extends React.Component {
               <Route exact path='/profile' component={UserProfile}/>
               <Route exact path='/login' render={(props)=><Login isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} onLogin={this.handleLogin} {...props}/>}></Route>
               <Route exact path='/signup' render={(props)=><Signup isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props}/>}></Route>
+              <Route path = '/u/:username' render={(props)=><UserProfile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props}/>}></Route>
               <Route component={Error} />
             </Switch>
       </div>

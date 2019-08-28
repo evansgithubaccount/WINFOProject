@@ -14,7 +14,6 @@ class CSharpPage extends React.Component {
   render() {
     return (
       <div id='cSharpPage'>
-        <Navigation />
         <div class="row">
           <div class="col-sm-2">
             <ul class="nav flex-column">

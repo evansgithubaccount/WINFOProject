@@ -4,8 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 import '../css/Navigation.css';
 import { Menu, Layout, Dropdown, Icon } from 'antd';
 
-const Header = Layout.Header;
-
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -45,7 +43,10 @@ class Navigation extends React.Component {
             //     <NavLink className='nav-item' to={{pathname:'javascript'}}>Javascript</NavLink>
             // </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <NavLink className='nav-link' to={{ pathname: '/' }}>Win Resources</NavLink>
+                <NavLink className='nav-link navbar-brand' to={{ pathname: '/' }}>
+                    <img src='./cfthLogo.png' width='30' height='30' className='d-inline-block align-center' alt=""/>
+                    WIN Resources
+                </NavLink>
                 {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button> */}

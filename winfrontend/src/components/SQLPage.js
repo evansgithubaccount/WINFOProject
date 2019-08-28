@@ -13,7 +13,6 @@ class SQLPage extends React.Component {
     render() {
         return (
             <div id='javaPage'>
-                <Navigation/>
                 <div className="row">
                     {/*<div class="col-sm-2" id="sideBar">*/}
                     <div className="col-sm-1">
