@@ -26,7 +26,6 @@ class Home extends React.Component {
         return (
             <div className='homePage'>
                 <p>Home Page Test</p>
-                <LinkUpload />
             </div>
         )
     }

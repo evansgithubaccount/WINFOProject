@@ -145,6 +145,7 @@ text-decoration: none;
 
   .menuItem{
     display: inline-block;
+    margin-right:-10%;
   }
 
   .bootDrop {
@@ -170,14 +171,9 @@ text-decoration: none;
   }
 
 
-  Input{
+  #searchBar {
     float:right;
     position:absolute;
-    margin-left: 66%;
-    margin-right: 10%;
-  }
-
-  LinkPopover {
-    display: inline-block;
-    border: 2px solid red;
+    margin-left: 60%;
+    margin-right: 20%;
   }

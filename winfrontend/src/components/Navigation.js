@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import '../css/Navigation.css';
 import { Menu, Layout, Dropdown, Icon, Input, Popover, Button } from 'antd';
-import LinkPopover from './LinkPopover';
+import ModalUpload from './ModalUpload';
 
 
 class Navigation extends React.Component {
@@ -30,12 +30,18 @@ class Navigation extends React.Component {
         let menuItems;
         if (this.props.currentUser) {
             menuItems = [
+                <Menu.Item className='menuItem'>
+                    <ModalUpload/>
+                </Menu.Item>,
                 <Menu.Item key="/profile" className="profile-menu menuItem" >
                     <ProfileDropdownMenu currentUser={this.props.currentUser} onLogout={this.props.onLogout} />
                 </Menu.Item>
             ];
         } else {
             menuItems = [
+                <Menu.Item className='menuItem'> 
+                    <ModalUpload/>
+                </Menu.Item>,
                 <Menu.Item key="/login" className='menuItem'>
                     <Link to="/login">Login</Link>
                 </Menu.Item>,
@@ -65,11 +71,11 @@ class Navigation extends React.Component {
                 {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button> */}
-                <button role="button" class="btn-info" data-toggle="collapse" data-target="#demo">
+                <button role="button" className="btn-info" data-toggle="collapse" data-target="#demo">
                     Languages
                 </button>
 
-                <div id="demo" class="collapse in width">
+                <div id="demo" className="collapse in width">
                     <div>
                         <Link to={{ pathname: '/css' }} className='collapseLink'>CSS</Link>
                         <Link to={{ pathname: '/html' }} className='collapseLink'>HTML</Link>
@@ -78,7 +84,7 @@ class Navigation extends React.Component {
                         <Link to={{ pathname: '/sql' }} className='collapseLink'>SQL</Link>
                     </div>
                 </div>
-                <Input name='searchBar' placeholder="Search for posts" enterButton onSearch={this.searchRedirect} onPressEnter={this.searchRedirect}/>
+                <Input id='searchBar' name='searchBar' placeholder="Search for posts" enterButton onSearch={this.searchRedirect} onPressEnter={this.searchRedirect}/>
                 <Menu
                     className="app-menu"
                     mode="inline"
@@ -111,8 +117,8 @@ function ProfileDropdownMenu(props) {
     );
 
     const bootDrop = (
-        <div class='dropdown'>
-            <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+        <div className='dropdown'>
+            <button className='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                 {props.currentUser.username}
             </button>
             <div className='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>
